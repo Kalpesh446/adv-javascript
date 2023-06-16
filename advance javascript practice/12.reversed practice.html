@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function reversedfun() {
+        let inp = document.getElementById("inp").value;
+        let number = inp.split("");
+        let reversed = [];
+        for (let i = number.length - 1; i >= 0; i--) {
+          reversed.push(parseInt(number[i]));
+        }
+        let output = reversed.join("");
+        document.getElementById("output").innerHTML = output;
+      }
+    </script>
+  </head>
+  <body>
+    <label for="inp">enter number:</label>
+    <input type="text" id="inp" />
+    <button onclick="reversedfun()">reversed</button>
+    <p id="output"></p>
+  </body>
+</html>

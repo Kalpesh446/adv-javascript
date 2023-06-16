@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reverse Sequence</title>
+  </head>
+  <body>
+    <label for="input">Enter numbers:</label>
+    <input type="text" id="input" />
+    <button onclick="reverseSequence()">Reverse</button>
+    <p id="output"></p>
+
+    <script>
+      function reverseSequence() {
+        // Get the input value from the user
+        let input = document.getElementById("input").value;
+
+        // Split the input string into an array of numbers
+        let numbers = input.split("");
+
+        // Create an empty array to store the reversed sequence
+        let reversed = [];
+        // Loop through the numbers in reverse order and add them to the reversed array
+        for (let i = numbers.length - 1; i >= 0; i--) {
+          // Convert each number from string to integer using parseInt
+          reversed.push(parseInt(numbers[i]));
+        }
+
+        // Join the reversed array into a string with commas
+        let output = reversed.join("");
+
+        // Display the reversed sequence on the screen
+        document.getElementById("output").textContent = output;
+      }
+    </script>
+  </body>
+</html>

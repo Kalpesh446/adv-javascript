@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let printhello = function () {
+        alert("hello world ");
+      };
+
+      let add = (a, b) => {
+        let c;
+        c = a + b;
+        alert(`addition=${c}`);
+      };
+      // callback function example
+      function evenfunction(num) {
+        alert(`num ${num}is even`);
+      }
+      function oddfunction(num) {
+        alert(`num ${num}is odd`);
+      }
+      function findevenodd(que, evenfunction, oddfunction) {
+        let num = prompt(que);
+        if (num % 2 == 0) {
+          evenfunction(num);
+        } else {
+          oddfunction(num);
+        }
+      }
+      function myfunction() {
+        printhello();
+        add(200, 300);
+        findevenodd("enter num", evenfunction, oddfunction);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="myfunction()">expression function</button>
+  </body>
+</html>

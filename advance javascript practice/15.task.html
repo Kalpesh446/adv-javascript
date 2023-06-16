@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let person = [
+        { name: "kush", age: 12 },
+        { name: "tej", age: 10 },
+        { name: "smit", age: 18 },
+        { name: "ram", age: 20 },
+      ];
+      //   1st task
+      let names = person.map((names) => names.name);
+      console.log(names);
+
+      // 2nd task
+      let totalAge = person.reduce(
+        (sum, individual) => sum + individual.age,
+        0
+      );
+      console.log("total age=>--", totalAge);
+
+      //   3rd task
+      let count = person.reduce((counter) => counter + 1, 0);
+      console.log(count);
+    </script>
+  </body>
+</html>

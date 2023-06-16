@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let str = "";
+      // construction method example
+      function constructionexample() {
+        function Product(pid, pname) {
+          this.pid = pid;
+          this.pname = pname;
+
+          this.printProduct = function () {};
+          str += `
+            <p>name:${this.pid}</p>
+            <p>title:${this.pname}</p>
+            `;
+        }
+        let product1 = new Product(123, "laptop");
+        product1.printProduct();
+        let product2 = new Product(124, "keyboard");
+        product2.printProduct();
+        document.getElementById("emp").innerHTML = str;
+      }
+
+      function myfunction() {
+        let employee = {
+          name: "kalpesh",
+          title: "react devloper",
+          email: "kal@gmail.com",
+        };
+
+        // this key word example
+        employee.printemp = function () {
+          let str = `
+          <p>name:${this.name}</p>
+          <p>title:${this.title}</p>
+          <p>email:${this.email}</p>
+          `;
+          document.getElementById("emp").innerHTML = str;
+        };
+
+        employee.printemp();
+        // alert(employee);\
+        employee.edu = "b.com"; //add single word property
+        employee["exp done"] = "5year"; //add multi word property
+        employee.name = "mayank"; //propery update
+        delete employee.title; // delete property
+        console.log(employee);
+        for (let key in employee) {
+          console.log(`key=${key} and value=${employee[key]}`);
+        }
+        let num = "12.334em";
+        num = parseFloat(num);
+        alert(num);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="myfunction()">click</button>
+    <br />
+    <button onclick="constructionexample()">click constructionExample</button>
+    <div id="emp"></div>
+  </body>
+</html>

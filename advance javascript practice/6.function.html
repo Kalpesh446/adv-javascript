@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function additon(a, b, x = 15) {
+        //x=15 is defalut value
+        let c;
+        c = a + b + x;
+        console.log(`additon of${a}and ${b}and ${x}=${c}`);
+      }
+      function squre(a) {
+        let result;
+        result = a * a * a * a;
+        return result;
+      }
+      function formadd() {
+        let num1 = document.getElementById("num1").value;
+        let num2 = document.getElementById("num2").value;
+        num1 = Number(num1);
+        num2 = Number(num2);
+        additon(num1, num2); // automatic je apde defalut value ave e j ave
+        // let ans = squre(num1);
+        // console.log(ans);
+        console.log(squre(num1));
+      }
+      function myfunction() {
+        let num1 = prompt("enter num1");
+        let num2 = prompt("enter num2");
+        let num3 = prompt("enter num3"); //if we use num3 so apde je value levi tej ave
+        num1 = Number(num1);
+        num2 = Number(num2);
+        num3 = Number(num3);
+        additon(num1, num2, num3);
+      }
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="num1" />
+      <input type="text" id="num2" />
+      <input type="button" value="click" onclick="formadd()" />
+    </form>
+    <button onclick="myfunction()">promt</button>
+  </body>
+</html>

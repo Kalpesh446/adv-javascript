@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reverse Number Example</title>
+  </head>
+  <body>
+    <label for="numberInput">Enter a number:</label>
+    <input type="text" id="numberInput" />
+    <button onclick="reverseNumber()">Reverse</button>
+
+    <div id="result"></div>
+
+    <script>
+      function reverseNumber() {
+        let numberInput = document.getElementById("numberInput").value;
+        let reversedNum = "";
+        let num = numberInput.toString();
+
+        let i = num.length - 1;
+        while (i >= 0) {
+          reversedNum += num[i];
+          i--;
+        }
+
+        document.getElementById("result").textContent = parseInt(reversedNum);
+      }
+    </script>
+  </body>
+</html>
