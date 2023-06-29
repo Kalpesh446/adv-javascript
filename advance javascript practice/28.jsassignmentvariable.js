@@ -40,7 +40,7 @@
 // what will print at y1-90_______
 // what will print at z1-error assign to constant_______
 // what will print at x2-90_______
-// what will print at y2-100_______
+// what will print at y2-90_______
 // what will print at z2-100_______
 
 // task 2
