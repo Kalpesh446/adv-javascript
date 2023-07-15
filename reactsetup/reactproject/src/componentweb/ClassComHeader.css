@@ -1,0 +1,11 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+header {
+  background-color: coral;
+  height: 67px;
+  width: 176%;
+  text-align: center;
+  color: darkblue;
+}

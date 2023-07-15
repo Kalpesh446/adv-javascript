@@ -130,13 +130,13 @@
 // Isinarry(1);
 // // Isinarry(100);
 
-let arr = ["i", "am", "kalpesh"];
-console.log(arr);
-//   arr.reverse();
-//   console.log(arr);
-let newArr = [];
-let l = arr.length - 1;
-for (let i = 0; i <= l; i++) {
-  newArr[i] = arr[l - i];
-}
-console.log(newArr);
+// let arr = ["i", "am", "kalpesh"];
+// console.log(arr);
+// //   arr.reverse();
+// //   console.log(arr);
+// let newArr = [];
+// let l = arr.length - 1;
+// for (let i = 0; i <= l; i++) {
+//   newArr[i] = arr[l - i];
+// }
+// console.log(newArr);

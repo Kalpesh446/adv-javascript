@@ -1,0 +1,15 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+main {
+  height: 200px;
+  width: 176%;
+  background-color: chartreuse;
+  padding: 140px 0px;
+  text-align: center;
+  color: crimson;
+}
+h2 {
+  font-size: 35px;
+}

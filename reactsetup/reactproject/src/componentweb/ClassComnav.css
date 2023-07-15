@@ -1,0 +1,25 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+nav {
+  background-color: brown;
+  height: 35px;
+  width: 176%;
+}
+a {
+  text-decoration: none;
+  color: azure;
+}
+a:hover {
+  color: blue;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+}
