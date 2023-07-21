@@ -1,4 +1,4 @@
-div {
+/* div {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -9,9 +9,11 @@ button {
   background: red !important;
   color: white;
   border-radius: 20px !important;
+  gap: 10px !important;
   border: none;
 }
 button:hover {
-  background: transparent !important;
+  background: lightblue !important;
   transition: 1s all ease;
-}
+  color: blue;
+} */

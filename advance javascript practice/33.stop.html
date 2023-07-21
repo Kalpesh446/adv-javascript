@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="result"></h1>
+    <script>
+      let sec = 0;
+      let min = 0;
+      let hr = 0;
+      let result = document.getElementById("result");
+
+      setInterval(function () {
+        sec++;
+        result.innerHTML = hr + " : " + min + " : " + sec;
+
+        if (sec == 60) {
+          sec = 0;
+          min++;
+        }
+        if (min == 60) {
+          min = 0;
+          hr++;
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

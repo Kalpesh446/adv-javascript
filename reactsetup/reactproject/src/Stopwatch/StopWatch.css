@@ -1,0 +1,12 @@
+.stopwatch {
+  height: 300px;
+  width: 500px;
+  background-color: azure;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+h1 {
+  color: brown;
+  padding: 30px;
+}
