@@ -1,0 +1,13 @@
+body {
+  background-color: rgb(35, 35, 152);
+}
+h1 {
+  margin: 103px 150px 0px 0px;
+  color: azure;
+  text-align: left;
+  font-size: 100px;
+  /* text-shadow: 4px 3px 4px greenyellow; */
+}
+span {
+  font-size: 100px;
+}
