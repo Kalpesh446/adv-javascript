@@ -28,7 +28,7 @@ function App() {
       {/* {<MapTask2 />} */}
       {/* {<Listkey />} */}
       {/* {<StopWatch />} */}
-      {<InputCom />}
+      {/* {<InputCom />} */}
     </div>
   );
 }
