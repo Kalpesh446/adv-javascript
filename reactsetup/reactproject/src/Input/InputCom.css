@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: rgb(61, 58, 58);
 }
 label {
@@ -12,17 +12,17 @@ input {
   border-radius: 10px;
   font-weight: 500;
   color: blueviolet;
-}
+} */
 
-h2 {
-  /* padding: 0px; */
-  margin: 10px;
+/* h2 { */
+/* padding: 0px; */
+/* margin: 10px;
   color: whitesmoke;
   font-weight: bold;
   font-size: 40px;
   text-shadow: 4px 3px 12px yellow;
-}
-button {
+} */
+/* button {
   outline: none;
   cursor: pointer;
   height: 50px;
@@ -40,4 +40,4 @@ button:hover {
   color: white;
   background-color: red;
   transition: 1s ease all;
-}
+} */

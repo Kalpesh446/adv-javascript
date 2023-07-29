@@ -13,6 +13,7 @@ import MapTask2 from "./Condition_map/MapTask2";
 import Listkey from "./List/Listkey";
 import StopWatch from "./Stopwatch/StopWatch";
 import InputCom from "./Input/InputCom";
+import MultiInputCom from "./Input/multiInputCom";
 function App() {
   return (
     <div>
@@ -29,6 +30,7 @@ function App() {
       {/* {<Listkey />} */}
       {/* {<StopWatch />} */}
       {/* {<InputCom />} */}
+      {<MultiInputCom />}
     </div>
   );
 }
