@@ -14,6 +14,7 @@ import Listkey from "./List/Listkey";
 import StopWatch from "./Stopwatch/StopWatch";
 import InputCom from "./Input/InputCom";
 import MultiInputCom from "./Input/multiInputCom";
+import DataForm from "./Input/DataForm";
 function App() {
   return (
     <div>
@@ -30,7 +31,8 @@ function App() {
       {/* {<Listkey />} */}
       {/* {<StopWatch />} */}
       {/* {<InputCom />} */}
-      {<MultiInputCom />}
+      {/* {<MultiInputCom />} */}
+      {<DataForm />}
     </div>
   );
 }
