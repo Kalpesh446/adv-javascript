@@ -1,136 +1,358 @@
-import { Button, Form, FloatingLabel, Table } from "react-bootstrap";
+import {
+  Form,
+  Button,
+  Table,
+  Row,
+  Col,
+  FormGroup,
+  Label,
+  Input,
+} from "reactstrap";
 import "./DataForm.css";
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 export default function DataForm() {
-  let [DateForm, SetDataForm] = useState({
+  let [dateForm, setDataForm] = useState({
     FullName: "",
-    Emailaddress: "",
-    Address: "",
-    Mobileno: "",
+    Email: "",
     Password: "",
+    Address: "",
+    Mobile: "",
+    City: "",
+    State: "",
   });
 
   let [userData, setUserData] = useState([]);
+  let [isIndex, setisIndex] = useState(null);
 
+  // to setdata
   function getData(e) {
     console.log("====>", e.target.name);
-    SetDataForm({ ...DateForm, [e.target.name]: e.target.value });
+    setDataForm({ ...dateForm, [e.target.name]: e.target.value });
   }
 
   function submitHandler() {
-    setUserData([...userData, DateForm]);
-    SetDataForm({
+    setUserData([...userData, dateForm]);
+    setDataForm({
       FullName: "",
-      Emailaddress: "",
-      Address: "",
-      Mobileno: "",
+      Email: "",
       Password: "",
+      Address: "",
+      Mobile: "",
+      City: "",
+      State: "",
     });
+    localStorage.setItem("userData", JSON.stringify([...userData, dateForm]));
   }
+
+  // add data from input to table
+  function updateHandler(ele, index) {
+    setDataForm(ele);
+    setisIndex(index);
+  }
+
+  // Delete data
+  function handleDelete(index) {
+    userData.splice(index, 1);
+    setUserData([...userData]);
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }
+
+  // to delete all data
+  function deleteAll() {
+    if (window.confirm("Are you sure you want to delete all data?"))
+      setUserData([]);
+    localStorage.clear();
+  }
+  // edit data is change then savechange to add data updated data
+  function saveChanges() {
+    if (isIndex || isIndex === 0) {
+      userData.splice(isIndex, 1, dateForm);
+      setUserData([...userData]);
+      setDataForm({
+        FullName: "",
+        Email: "",
+        Password: "",
+        Address: "",
+        Mobile: "",
+        City: "",
+        State: "",
+      });
+      setisIndex(null);
+    } else {
+      alert("please select any name");
+    }
+    localStorage.setItem("userData", JSON.stringify([...userData]));
+  }
+
+  useEffect(() => {
+    let data = localStorage.getItem("userData");
+    let normalData = JSON.parse(data);
+    setUserData([...normalData]);
+  }, []);
   return (
     <>
-      <div className="formdata h-100 w-50 ">
-        <Form>
-          <h1>Personal Data Form</h1>
+      <div className="Formdiv d-flex   text-center justify-content-center align-content-center ">
+        <Form className=" card">
+          <div className="head">
+            <img src="./images/reg.png" alt="" />
+          </div>
+          <Row>
+            <Col md={4}>
+              <FormGroup>
+                <Label for="exampleState">Full Name</Label>
+                <Input
+                  type="Text"
+                  id="exampleFullName"
+                  name="FullName"
+                  onChange={(e) => getData(e)}
+                  value={dateForm.FullName}
+                  placeholder="Enter Your Name"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4}>
+              <FormGroup>
+                <Label for="exampleEmail">Email</Label>
+                <Input
+                  value={dateForm.Email}
+                  type="Email"
+                  id="exampleEmail"
+                  name="Email"
+                  onChange={(e) => getData(e)}
+                  placeholder="Enter Email id"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4}>
+              <FormGroup>
+                <Label for="examplePassword">Password</Label>
+                <Input
+                  id="examplePassword"
+                  value={dateForm.Password}
+                  name="Password"
+                  placeholder="Enter Password"
+                  onChange={(e) => getData(e)}
+                  type="password"
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={5}>
+              <FormGroup>
+                <Label for="exampleAddress">Address</Label>
+                <Input
+                  id="exampleAddress"
+                  type="text"
+                  value={dateForm.Address}
+                  name="Address"
+                  placeholder="Enter Address"
+                  onChange={(e) => getData(e)}
+                />
+              </FormGroup>
+            </Col>
+            <Col md={4}>
+              <FormGroup>
+                <Label for="exampleMobile">Mobile number:</Label>
+                <Input
+                  type="number"
+                  id="exampleMobile"
+                  value={dateForm.Mobile}
+                  name="Mobile"
+                  onChange={(e) => getData(e)}
+                  placeholder="Enter mobile no"
+                />
+              </FormGroup>
+            </Col>
+            <Col md={3}>
+              <FormGroup>
+                <Label for="exampleCity">City</Label>
+                <Input
+                  id="exampleCity"
+                  value={dateForm.City}
+                  name="City"
+                  onChange={(e) => getData(e)}
+                  placeholder="Enter City"
+                />
+              </FormGroup>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={5}>
+              <FormGroup>
+                <Label for="exampleState">State</Label>
+                <Input
+                  id="exampleState"
+                  type="text"
+                  value={dateForm.State}
+                  name="State"
+                  placeholder="Enter State"
+                  onChange={(e) => getData(e)}
+                />
+              </FormGroup>
+            </Col>
+          </Row>
 
-          <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label>Full Name</Form.Label>
-            <Form.Control
-              value={DateForm.FullName}
-              name="FullName"
-              type="Name"
-              onChange={(e) => getData(e)}
-              placeholder="Enter Name"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              value={DateForm.Emailaddress}
-              type="email"
-              name="Emailaddress"
-              onChange={(e) => getData(e)}
-              placeholder="Enter email"
-            />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-          <Form.Label>Address</Form.Label>
-          <FloatingLabel
-            controlId="floatingTextarea"
-            label="Address"
-            className="mb-3 text-muted "
-          >
-            <Form.Control
-              value={DateForm.Address}
-              as="textarea"
-              name="Address"
-              onChange={(e) => getData(e)}
-              placeholder="Leave a comment here"
-            />
-          </FloatingLabel>
-          <Form.Group className="mb-3" controlId="formBasicMobile">
-            <Form.Label>Mobile no:</Form.Label>
-            <Form.Control
-              value={DateForm.Mobileno}
-              type="text"
-              name="Mobileno"
-              onChange={(e) => getData(e)}
-              placeholder="Enter mobile number"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              value={DateForm.Password}
-              type="password"
-              name="Password"
-              onChange={(e) => getData(e)}
-              placeholder="Password"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Check me out" />
-          </Form.Group>
+          <Button onClick={() => submitHandler()} className=" bg-primary mt-2 ">
+            Add data
+          </Button>
           <Button
-            className="  d-flex justify-content-center fw-bold "
-            variant="primary"
-            onClick={() => submitHandler()}
+            onClick={() => saveChanges()}
+            className="mt-2 ms-2   bg-info-subtle text-black"
           >
-            Submit
+            Save Changes
+          </Button>
+          <Button onClick={() => deleteAll()} className="mt-2 ms-2   bg-danger">
+            Delete All
           </Button>
         </Form>
       </div>
 
       {/* table to add data */}
-      <Table striped bordered hover size="sm">
-        <thead>
-          <tr>
-            <th>Sr no.</th>
-            <th>Full Name</th>
-            <th>Email address</th>
-            <th>Address</th>
-            <th>mobile no</th>
-            <th>Password</th>
-          </tr>
-        </thead>
-        <tbody>
-          {userData.map((e, i) => {
-            return (
+      {userData.length > 0 ? (
+        <Table className=" w-75 justify-content-center">
+          <thead>
+            <tr>
+              <th>Sr no.</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Address</th>
+              <th>mobile no</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {userData.map((e, i) => (
               <tr key={i}>
                 <td>{i + 1}</td>
                 <td>{e.FullName}</td>
-                <td>{e.Emailaddress}</td>
-                <td>{e.Address}</td>
-                <td>{e.Mobileno}</td>
+                <td>{e.Email}</td>
                 <td>{e.Password}</td>
+                <td>{e.Address}</td>
+                <td>{e.Mobile}</td>
+                <td>{e.City}</td>
+                <td>{e.State}</td>
+                <td>
+                  <button
+                    className=" bg-danger"
+                    onClick={() => handleDelete(i)}
+                  >
+                    Delete
+                  </button>
+                  <button
+                    className=" bg-success  ms-1"
+                    onClick={() => updateHandler(e, i)}
+                  >
+                    Edit
+                  </button>
+                </td>
               </tr>
-            );
-          })}
-        </tbody>
-      </Table>
+            ))}
+          </tbody>
+        </Table>
+      ) : null}
     </>
   );
 }
+
+// import {
+//   Form,
+//   Button,
+//   Table,
+//   Row,
+//   Col,
+//   FormGroup,
+//   Label,
+//   Input,
+// } from "reactstrap";
+// import "./DataForm.css";
+// import React, { useState } from "react";
+// import { useEffect } from "react";
+
+// export default function DataForm() {
+//   let [dateForm, setDataForm] = useState({
+//     FullName: "",
+//     Email: "",
+//     Password: "",
+//     Address: "",
+//     Mobile: "",
+//     City: "",
+//     State: "",
+//   });
+
+//   let [userData, setUserData] = useState([]);
+//   let [isIndex, setisIndex] = useState(null);
+
+//   // to setdata
+//   function getData(e) {
+//     console.log("====>", e.target.name);
+//     setDataForm({ ...dateForm, [e.target.name]: e.target.value });
+//   }
+
+//   function submitHandler() {
+//     const updatedUserData = [...userData, dateForm];
+//     setUserData(updatedUserData);
+//     setDataForm({
+//       FullName: "",
+//       Email: "",
+//       Password: "",
+//       Address: "",
+//       Mobile: "",
+//       City: "",
+//       State: "",
+//     });
+//     localStorage.setItem("userData", JSON.stringify(updatedUserData));
+//   }
+//   useEffect(() => {
+//     let storedUserData = localStorage.getItem("userData");
+//     if (storedUserData) {
+//       setUserData(JSON.parse(storedUserData));
+//     }
+//   }, []);
+
+//   // add data from input to table
+//   function updateHandler(ele, index) {
+//     setDataForm(ele);
+//     setisIndex(index);
+//   }
+
+//   // Delete data
+//   function handleDelete(index) {
+//     const updatedUserData = [...userData];
+//     updatedUserData.splice(index, 1);
+//     setUserData(updatedUserData);
+//     localStorage.setItem("userData", JSON.stringify(updatedUserData));
+//   }
+
+//   // to delete all data
+//   function deleteAll() {
+//     if (window.confirm("Are you sure you want to delete all data?"))
+//       setUserData([]);
+//     localStorage.clear();
+//   }
+//   // edit data is change then savechange to add data updated data
+//   function saveChanges() {
+//     if (isIndex || isIndex === 0) {
+//       const updatedUserData = [...userData];
+//       updatedUserData.splice(isIndex, 1, dateForm);
+//       setUserData(updatedUserData);
+//       setDataForm({
+//         FullName: "",
+//         Email: "",
+//         Password: "",
+//         Address: "",
+//         Mobile: "",
+//         City: "",
+//         State: "",
+//       });
+//       setisIndex(null);
+//       localStorage.setItem("userData", JSON.stringify(updatedUserData));
+//     } else {
+//       alert("please select any name");
+//     }
+//   }

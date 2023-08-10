@@ -15,6 +15,9 @@ import StopWatch from "./Stopwatch/StopWatch";
 import InputCom from "./Input/InputCom";
 import MultiInputCom from "./Input/multiInputCom";
 import DataForm from "./Input/DataForm";
+import DeleteCom from "./Input/DeleteCom";
+import DataDelete from "./Input/DataDelete";
+import ApiCom from "./Api/ApiCom";
 function App() {
   return (
     <div>
@@ -33,6 +36,9 @@ function App() {
       {/* {<InputCom />} */}
       {/* {<MultiInputCom />} */}
       {<DataForm />}
+      {/* {<DeleteCom />} */}
+      {/* {<DataDelete />} */}
+      {/* {<ApiCom />} */}
     </div>
   );
 }

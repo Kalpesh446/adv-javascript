@@ -1,8 +1,7 @@
-import { Button, Form, Table } from "react-bootstrap";
-import "./MultiInputCom.css";
+import { Form, Button, Table } from "react-bootstrap";
 import React, { useState } from "react";
 
-export default function MultiInputCom() {
+export default function DataDelete() {
   let [data, setData] = useState({
     companyname: "",
     Processer: "",
@@ -11,6 +10,20 @@ export default function MultiInputCom() {
   });
 
   let [userData, setUserData] = useState([]);
+  let [isUpdate, setIsUpdate] = useState(false);
+  let [index, setIndex] = useState(null);
+
+  function addData() {
+    if (isUpdate) {
+      data.splice(index, 1, firstName);
+      setData([...data]);
+      setFirstName("");
+      setIsUpdate(false);
+    } else {
+      setData([...data, firstName]);
+      setFirstName("");
+    }
+  }
 
   function getData(e) {
     console.log("====>", e.target.name);
@@ -25,6 +38,19 @@ export default function MultiInputCom() {
       price: "",
       ram: "",
     });
+  }
+
+  function handleDelete(index) {
+    const updatedUserData = [...userData];
+    updatedUserData.splice(index, 1);
+    setUserData(updatedUserData);
+  }
+
+  // update
+  function updateHandler(ele, index) {
+    setIsUpdate(true);
+    setFirstName(ele);
+    setIndex(index);
   }
 
   return (
@@ -89,8 +115,8 @@ export default function MultiInputCom() {
       </div>
 
       {/* table to add data */}
-      <div className="w-50 mt-3  ">
-        <Table striped bordered hover className="w-100 ms-4 ">
+      {userData.length > 0 ? (
+        <Table striped bordered hover className="w-75 ms-4 ">
           <thead>
             <tr>
               <th className=" bg-danger text-light  fw-bold">Sr.</th>
@@ -98,6 +124,7 @@ export default function MultiInputCom() {
               <th className=" bg-danger text-light fw-bold">Processer</th>
               <th className=" bg-danger text-light fw-bold">Price</th>
               <th className=" bg-danger text-light fw-bold">ram</th>
+              <th className=" bg-danger text-light fw-bold">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -113,12 +140,21 @@ export default function MultiInputCom() {
                   </td>
                   <td className="bg-success text-light fw-bold">{e.price}</td>
                   <td className="bg-success text-light fw-bold">{e.ram}</td>
+                  <td className="bg-success">
+                    <button
+                      className="bg-danger text-light fw-bold"
+                      variant="danger"
+                      onClick={() => handleDelete(i)}
+                    >
+                      DeleteCom
+                    </button>
+                  </td>
                 </tr>
               );
             })}
           </tbody>
         </Table>
-      </div>
+      ) : null}
     </>
   );
 }
