@@ -14,10 +14,12 @@ import Listkey from "./List/Listkey";
 import StopWatch from "./Stopwatch/StopWatch";
 import InputCom from "./Input/InputCom";
 import MultiInputCom from "./Input/multiInputCom";
-import DataForm from "./Input/DataForm";
+// import DataForm from "./Input/DataForm";
 import DeleteCom from "./Input/DeleteCom";
 import DataDelete from "./Input/DataDelete";
 import ApiCom from "./Api/ApiCom";
+import ReactHookForm from "./Input/reactHookForm";
+import App2 from "./redux/App2";
 function App() {
   return (
     <div>
@@ -35,10 +37,12 @@ function App() {
       {/* {<StopWatch />} */}
       {/* {<InputCom />} */}
       {/* {<MultiInputCom />} */}
-      {<DataForm />}
+      {/* {<DataForm />} */}
       {/* {<DeleteCom />} */}
       {/* {<DataDelete />} */}
       {/* {<ApiCom />} */}
+      {/* {<ReactHookForm />} */}
+      {<App2 />}
     </div>
   );
 }

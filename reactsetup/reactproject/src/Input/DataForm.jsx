@@ -87,9 +87,11 @@ export default function DataForm() {
   }
 
   useEffect(() => {
-    let data = localStorage.getItem("userData");
-    let normalData = JSON.parse(data);
-    setUserData([...normalData]);
+    if (localStorage.getItem("userData") !== null) {
+      let data = localStorage.getItem("userData");
+      let normalData = JSON.parse(data);
+      setUserData([...normalData]);
+    }
   }, []);
   return (
     <>

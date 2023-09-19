@@ -1,0 +1,25 @@
+.navbarmenu {
+  height: 90px !important ;
+  background-color: rgba(205, 183, 183, 0.448);
+}
+.logo {
+  height: 90px;
+  width: 80px;
+}
+.Logoname {
+  font-family: cursive !important;
+  font-weight: 800 !important;
+  font-size: 35px !important;
+  color: rgba(56, 30, 102, 0.931) !important;
+}
+.navall {
+  margin-left: 70px;
+  font-size: 18px;
+  font-weight: 680;
+  text-align: justify;
+  gap: 25px;
+}
+a:hover {
+  color: rgb(205, 57, 57) !important;
+  transition: 0.5s all ease;
+}
