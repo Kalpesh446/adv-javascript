@@ -20,7 +20,9 @@ import DataDelete from "./Input/DataDelete";
 import ApiCom from "./Api/ApiCom";
 import ReactHookForm from "./Input/reactHookForm";
 import App2 from "./redux/App2";
-import Router from "./Router/Router";
+// import Router from "./Router/Router";
+import Crude from "./Crude App/Crude";
+import AppToolkit from "./Readux Toolkit/AppToolkit";
 function App() {
   return (
     <div>
@@ -44,7 +46,9 @@ function App() {
       {/* {<ApiCom />} */}
       {/* {<ReactHookForm />} */}
       {/* {<App2 />} */}
-      {<Router />}
+      {/* {<Router />} */}
+      {/* {<Crude />} */}
+      {<AppToolkit />}
     </div>
   );
 }
